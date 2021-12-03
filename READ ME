@@ -1,0 +1,80 @@
+----------------------------------------------------------------------------------------------------------------------------------------
+                                                            ~READ ME!~
+----------------------------------------------------------------------------------------------------------------------------------------
+Project: 
+10.1 Your Own Class
+Project Description: 
+Implementation of a custom class that is based on a real-world object
+Creator: Michelle Sun
+Sources Used: https://realpython.com/instance-class-and-static-methods-demystified/
+https://astronomy.swin.edu.au/cosmos/e/Ellipse
+https://www.educative.io/edpresso/what-is-super-in-python https://blog.finxter.com/solved-typeerror-method-takes-1-positional-argument-but-2-were-given/ https://www.google.com/search?q=smtp+server+for+gmail&rlz=1C1VDKB_enUS971US971&sxsrf=AOaemvIwW_7CU698p58iUDISX2RvPvIz2Q%3A1638438238232&ei=XpWoYe3CDdXQ9AOt8oOwBg&ved=0ahUKEwjt6bOJ6sT0AhVVKH0KHS35AGYQ4dUDCA8&uact=5&oq=smtp+server+for+gmail&gs_lcp=Cgdnd3Mtd2l6EAMyBAgjECcyBQgAEIAEMgoIABCABBCHAhAUMgUIABCABDIFCAAQgAQyBQgAEIAEMgoIABCABBCHAhAUMgUIABCABDIFCAAQhgMyBQgAEIYDOgcIABBHELADOgcIABCwAxBDOgYIABAWEB46CAghEBYQHRAeSgQIQRgAUJwBWN8VYJMaaANwAngAgAGzAYgBpAqSAQQxMi4ymAEAoAEByAEKwAEB&sclient=gws-wiz
+https://betterprogramming.pub/how-to-send-an-email-with-attachments-in-python-abe3b957ecf3 https://stackoverflow.com/questions/16512592/login-credentials-not-working-with-gmail-smtp
+https://www.geeksforgeeks.org/getter-and-setter-in-python/
+https://myaccount.google.com/lesssecureapps?pli=1&rapt=AEjHL4Mau5ndYuylekraBzZq4DO72Qi2Q33Lcs8ap06PNKkHrquqTazmTs83rtuqLHICbOAHZ-1IjaAdRhcbuQeK_6jRKDtbig 
+________________________________________________________________________________________________________________________________________
+Part 1: 
+Program Name: 
+    Student info/Final Grades email sender
+Program Description:
+    Allows you to get student info from their Name, ID, Phone number, and gpa. You can also update/change their name, ID, phone number, or gpa. It automatically takes the info and make it create a doc of their info if you use the create doc function. Another function is being able to send the file that you make into an email!
+
+________________________________________________________________________________________________________________________________________
+
+Description of the Student_info Class: 
+    The blueprint of:
+        You can get and set the student's name, ID, phone number, and gpa. You can also write specified student info into a text file. Another function is that you can send an automated email along with the text file to another person. 
+
+Description of each data variable: 
+    self._name = name - This is a private variable. This is to store the student's name. 
+    self._ID = ID - This is a private variable. This is to store the student's ID.
+    self._phone = phone - This is a private variable. This is to store the student’s phone number.
+    self._gpa = gpa - This is a private variable. This is to store the student’s gpa. 
+    n - used to store the user input. It asks for the student’s name. 
+    fg - used to store the creation of the text file and allows it to be written on. It gets used with .write().
+    your_email - used to store user input. It asks for the user’s email.
+    your_password - used to store user input. It asks for the user’s email password. 
+    server_info - used to store the server smtp server connection name and port number. It is used with smtp functions to connect to the server. 
+    their_email - is used to store user input. It asks for the email they want to send their msg to.
+    filename - is used to store the user input. It asks for the filename of the file they want to send with the email.
+    msg - is used to store MIMEMultipart function. This is used to make the subject, from, to, body, and attachment parts. 
+    e - stores the class and the default info to use in the main function. You can use e. Whatever function to call on the class.  
+
+Description of each of the methods: 
+    get_name - gets the default name of the student. Then it returns
+         the name of the Student and prints a message saying Default name acquired.
+    get_ID - gets the default ID of the student. Then it returns
+        the ID of the student and prints a message saying Default ID acquired.
+    get_phone - gets the default phone of the student. Then it returns
+        the phone of the student and prints a message saying Default Phone number acquired.
+    get_gpa - gets the default gpa of the student. Then it returns
+        the GPA of the student and prints a message saying Default GPA acquired.
+    set_name - changes the name of the Student. Replaces the old value with the input value. Then it returns
+        Name has been changed to the changed name.
+    set_phone - changes the phone number of the student. Replaces the old value of the input value. Then it returns
+        Phone number has been changed to the changed phone number.
+    set_ID - changes the ID of the Student. Replaces the old value with the input value. An if statement is used to check if the input is a number. If it is a number it converts the input into an int. Then it returns
+        ID has been changed to the changed Student ID.
+    if it isn't then it will throw an error. 
+    set_gpa - changes the GPA of the Student. Replaces the old value with the input value. An if statement is used to check if the input is a number. If it is a number it converts the input into a float. Then it returns 
+        GPA has been changed to the changed Student GPA. 
+    if it isn't then it will throw an error. 
+    create_doc - is a method used to create a new file named the student name that was inputted 	by the user. It takes the student's information and writes it on the document. 
+   send_mail - is a method used to send an email with attached files and messages. It takes the user 	inputs from earlier and uses them for the from, to, and password. It is formated with 	MIMEMultipart() which breaks down the parts of the email from subject, from, to, and 	attachments. Then there's an authentication try and except to make it automatically close 	the program if the authentication fails. 
+main - used to use the code. 
+________________________________________________________________________________________________________________________________________
+Part 2: 
+Description of the Demo Program: 
+	So this program was created for school purposes, so lets say that you wanted to change a student's information and wanted to finalize a student's grades/gpa. So, you can get the original information of student, aka the default information, using the get function and you can change the information using the set function. Also let's say you want to send it to your student or parents' of the student that contains their child/their info and GPA. WELL, this program has a function to create a text file that contains the student's information using the create_doc function and it also has a function to send an email to the person the teacher wants to send it to using the send_mail function. 
+	So what happens initially when you run the program is that you get prompted to enter your email address. Then you will get prompted asking for your email password. This is to get connected to email server. Then after that, depending on what functions you use, it will show you the confirmation of the information you requested or set, or if you used the create_doc function, it will prompt you for a student name, which creates the document with the name of the entered student name and the format of "'s Final Grade". If you use the send_mail function, it will prompt you for your email again. Then after that it will prompt for your password again. This is to log you into your email. Then it will request for the email you want to send the email to. Then it will prompt you for a file name, which is the file you want to send to the recipient. Then the program will end. If you enter your own email to check if this program worked, you would see that an email was indeed sent. 
+Instructions on how to run the demo program:
+	So you can run this program on VSCode or powershell. What will be needed for this program to be tested will be these credientials: gmail: testemail2468013579@gmail.com gmail password: TestEmail123. You can also use your own email and password, BUT, if you do, make sure to go on this website https://myaccount.google.com/lesssecureapps?pli=1&rapt=AEjHL4Mau5ndYuylekraBzZq4DO72Qi2Q33Lcs8ap06PNKkHrquqTazmTs83rtuqLHICbOAHZ-1IjaAdRhcbuQeK_6jRKDtbig to allow less secure apps: ON. If you don't then program will close, due to authentication error. With the gmail and password provided, it is already set to allow less secure apps, so it should work with that. Another thing that will be needed is someone's email. This email can be your personal email to check if this code actually works, and after you do run the code and the program closes then you will be able to see that the email is sent to the specified email you wanted to send it to. 	
+	SO, to run/test this code, you would need to set the class to a variable to use the functions and then you can grab whatever information you want or change any information with the get and set functions in the main function. Then you can choose to use the create_doc function to create a document with the current student info or the info that you set with the set function. You can also choose to use the send_mail function to send a file to an email. 
+________________________________________________________________________________________________________________________________________
+
+CODE DOCUMENTATION:
+Some hiccups during the build process:
+1. I knew I wanted to know how to make a python function to write an automated email, but I didn't know how. So I did research on the internet on how to make a code for it. I used this article in particular which really helped me a lot! https://betterprogramming.pub/how-to-send-an-email-with-attachments-in-python-abe3b957ecf3 . This article showed a program in python on how to send an email using python through outlook servers. So, I learned from this article's code to use it for gmail servers and I did research on the smtp server for gmail and the port that needed to be used for it. 
+2. my function for send_mail kept throwing an error saying it takes 1 positional argument but 2 were given. I used https://blog.finxter.com/solved-typeerror-method-takes-1-positional-argument-but-2-were-given/ to figureout a way to solve the issue, which was just making it send_mail(self,body) instead of just body. 
+3. I had authentication error problems. I fixed this by https://stackoverflow.com/questions/16512592/login-credentials-not-working-with-gmail-smtp reading the information on this website. Which I used https://myaccount.google.com/lesssecureapps?pli=1&rapt=AEjHL4Mau5ndYuylekraBzZq4DO72Qi2Q33Lcs8ap06PNKkHrquqTazmTs83rtuqLHICbOAHZ-1IjaAdRhcbuQeK_6jRKDtbig this website to change the option allow the authentication part work. 
+________________________________________________________________________________________________________________________________________
